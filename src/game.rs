@@ -1,6 +1,5 @@
 use std::collections::HashMap;
-use std::io;
-use std::{thread, time};
+use std::{thread, time, io};
 
 ///
 ///An Action is composed of three strings.
@@ -52,6 +51,7 @@ impl Game {
                     self.character.room = r;
                 } else {
                     println!("Opening this room requires {}", i);
+                    self.clear();
                 }
             }
         }
@@ -67,7 +67,8 @@ impl Game {
     }
 
     pub fn clear(&self) {
-        print!("\x1B[2J");
+
+        print!("{}[2J", 27 as char);
     }
 
     pub fn play(&mut self) {
