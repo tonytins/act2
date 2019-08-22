@@ -1,0 +1,17 @@
+[package]
+name = "act2"
+version = "0.1.2"
+authors = ["Dimitri Wayland <dimitrischeibe@gmail.com>", "Anthony Wilcox <35226681+antonwilc0x@users.noreply.github.com>"]
+description = "Act 2 is a simple engine for making text-based adventure games using JSON."
+homepage = "https://github.com/tonytins/act2"
+repository = "https://github.com/tonytins/act2"
+edition = "2018"
+keywords = ["terminal","adventure","game","engine"]
+license = "Unlicense"
+
+[dependencies]
+serde_json = "1.0"
+
+[dependencies.serde]
+version = "1.0"
+features = ["derive"]
