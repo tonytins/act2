@@ -33,7 +33,7 @@ impl JsonAction {
                              self.fields[1].clone(),
                              self.fields[2].clone())
             },
-            _ => panic!(""),
+            _ => panic!("Unable to parse action!"),
         }
     }
 }
