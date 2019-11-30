@@ -15,7 +15,7 @@ To try out an example, simply type ``cargo run --example game -- ExampleGame.jso
 - **Dimitri Wayland** - *Original, Act* - [alisww](https://github.com/alisww/)
 - **Anthony Wilcox** - *Rewrite, Act 2* - [tonytins](https://github.com/tonytins)
 
-See also the list of [contributors](https://github.com/tonytins/citylimits/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/tonytins/act2/contributors) who participated in this project.
 
 ### Tested Platforms
 

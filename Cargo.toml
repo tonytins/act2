@@ -7,7 +7,7 @@ homepage = "https://github.com/tonytins/act2"
 repository = "https://github.com/tonytins/act2"
 edition = "2018"
 keywords = ["terminal","adventure","game","engine"]
-license = "Unlicense"
+license = "MIT"
 
 [dependencies]
 serde_json = "1.0"
