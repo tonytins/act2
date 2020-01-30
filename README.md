@@ -1,5 +1,7 @@
 # Act 2
 
+![Rust](https://github.com/tonytins/act2/workflows/Rust/badge.svg)
+
 Act 2 is a simple engine for making text-based adventure games using JSON.
 
 To try out an example, simply type ``cargo run --example game -- ExampleGame.json`` from your terminal or command line.
@@ -8,7 +10,7 @@ To try out an example, simply type ``cargo run --example game -- ExampleGame.jso
 
 ### Prerequisites
 
-- Rust 2018 update
+- Rust 1.41+
 
 ## Authors
 
