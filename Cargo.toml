@@ -1,11 +1,12 @@
 [package]
 name = "act2"
 version = "0.1.2"
-authors = ["Dimitri Wayland <dimitrischeibe@gmail.com>", "Anthony Wilcox <35226681+antonwilc0x@users.noreply.github.com>"]
+authors = ["Dimitri Wayland <dimitrischeibe@gmail.com>", "Anthony Foxclaw"]
 description = "Act 2 is a simple engine for making text-based adventure games using JSON."
 homepage = "https://github.com/tonytins/act2"
 repository = "https://github.com/tonytins/act2"
 edition = "2018"
+categories = ["games", "game-development"]
 keywords = ["terminal","adventure","game","engine"]
 license = "MIT"
 

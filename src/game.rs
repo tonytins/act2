@@ -1,5 +1,9 @@
+/*
+ * This project is licensed under the MIT license.
+ * See the LICENSE file in the project root for more information.
+ */
 use std::collections::HashMap;
-use std::{thread, time, io};
+use std::{io, thread, time};
 
 ///
 ///An Action is composed of three strings.
@@ -67,12 +71,12 @@ impl Game {
     }
 
     pub fn clear(&self) {
-
         print!("{}[2J", 27 as char);
     }
 
     pub fn play(&mut self) {
-        print!("
+        print!(
+            "
     :::      :::::::: :::::::::::       ::::::::
   :+: :+:   :+:    :+:    :+:          :+:    :+:
  +:+   +:+  +:+           +:+                +:+
@@ -80,8 +84,9 @@ impl Game {
 +#+     +#+ +#+           +#+            +#+
 #+#     #+# #+#    #+#    #+#           #+#
 ###     ###  ########     ###          ##########
-\n");
-        println!("Made with Act 2. Make your own game at github.com/tonytins/act2");
+\n"
+        );
+        println!("Act 2 Text Adventure Engine");
         thread::sleep(time::Duration::from_millis(4000));
         self.clear();
         'outer: loop {
@@ -95,11 +100,13 @@ impl Game {
                 Some(u) => {
                     let a = match r.actions.iter().nth(u as usize) {
                         Some(x) => x,
-                        None => { continue 'outer; }
+                        None => {
+                            continue 'outer;
+                        }
                     };
                     self.action(a.clone());
                 }
-                None => { continue 'outer }
+                None => continue 'outer,
             }
         }
     }

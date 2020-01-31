@@ -1,12 +1,12 @@
-//!
-//! Act 2 is a simple engine for making text-based adventure games using JSON.
-//!
-//! It's on [crates.io](https://crates.io/crates/act2) and on [GitHub](https://github.com/tonytins/act2)!
-mod json_models;
+/*
+ * This project is licensed under the MIT license.
+ * See the LICENSE file in the project root for more information.
+ */
 pub mod game;
+mod jmodels;
 
-use json_models::JsonGame;
 use game::Game;
+use jmodels::JsonGame;
 
 pub fn load_game(input: &str) -> Result<Game, serde_json::error::Error> {
     let rg: JsonGame = serde_json::from_str(input).unwrap();

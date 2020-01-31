@@ -14,18 +14,10 @@ To try out an example, simply type ``cargo run --example game -- ExampleGame.jso
 
 ## Authors
 
-- **Dimitri Wayland** - *Original, Act* - [alisww](https://github.com/alisww/)
-- **Anthony Wilcox** - *Rewrite, Act 2* - [tonytins](https://github.com/tonytins)
+- **Dimitri Wayland** - *Initial work* - [alisww](https://github.com/alisww/)
+- **Anthony Wilcox** - *Maintainer* - [tonytins](https://github.com/tonytins)
 
 See also the list of [contributors](https://github.com/tonytins/act2/contributors) who participated in this project.
-
-### Tested Platforms
-
-- Linux
-  - Ubuntu 16.04+
-  - Debian 9+
-- Windows
-  - 10 v1809+
 
 ## License
 
