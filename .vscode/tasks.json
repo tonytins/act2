@@ -1,0 +1,48 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "cargo",
+      "subcommand": "build",
+      "problemMatcher": ["$rustc"],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "label": "Rust: cargo build"
+    },
+    {
+      "type": "cargo",
+      "subcommand": "check",
+      "problemMatcher": ["$rustc"],
+      "group": "build",
+      "label": "Rust: cargo check"
+    },
+    {
+      "type": "cargo",
+      "subcommand": "test",
+      "problemMatcher": ["$rustc"],
+      "label": "Rust: cargo test"
+    },
+    {
+      "type": "process",
+      "command": "cargo",
+      "args": ["test", "--doc"],
+      "problemMatcher": ["$rustc"],
+      "label": "Rust: cargo test --doc"
+    },
+    {
+      "type": "cargo",
+      "subcommand": "clean",
+      "problemMatcher": ["$rustc"],
+      "label": "Rust: cargo clean"
+    },
+    {
+      "type": "process",
+      "command": "cargo",
+      "problemMatcher": ["$rustc"],
+      "args": ["run", "--example", "game", "--", "game.json"],
+      "label": "Rust: cargo run example"
+    }
+  ]
+}

@@ -1,7 +1,5 @@
-/*
- * This project is licensed under the MIT license.
- * See the LICENSE file in the project root for more information.
- */
+// This project is licensed under the MIT license.
+// See the LICENSE file in the project root for more information.
 use crate::game::*;
 use serde::Deserialize;
 use std::collections::HashMap;

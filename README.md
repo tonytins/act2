@@ -1,21 +1,19 @@
-# Act 2
+# Act 2 🎬
 
-![Rust](https://github.com/tonytins/act2/workflows/Rust/badge.svg) [![Build Status](https://travis-ci.org/tonytins/act2.svg?branch=master)](https://travis-ci.org/tonytins/act2) [![Build status](https://ci.appveyor.com/api/projects/status/ffru6ik26j2b87ko?svg=true)](https://ci.appveyor.com/project/tonytins/act2) [![codecov](https://codecov.io/gh/tonytins/act2/branch/master/graph/badge.svg)](https://codecov.io/gh/tonytins/act2)
+[![GitHub license](https://img.shields.io/github/license/tonytins/act2)](https://github.com/tonytins/act2/blob/main/LICENSE) ![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/tonytins/act2/Rust/main) ![GitHub commit activity](https://img.shields.io/github/commit-activity/w/tonytins/act2)
 
 Act 2 is a simple engine for making text-based adventure games using JSON.
 
-To try out an example, simply type ``cargo run --example game -- ExampleGame.json`` from your terminal or command line.
+To try out an example, simply type ``cargo run --example game -- game.json`` from your terminal or command line.
 
 ## Requirements
 
-### Prerequisites
+- Rust 2021 Edition
 
-- Rust 1.41+
-
-## Authors
+## Contributors
 
 - **Dimitri Wayland** - *Initial work* - [alisww](https://github.com/alisww/)
-- **Anthony Wilcox** - *Maintainer* - [tonytins](https://github.com/tonytins)
+- **Tony Bark** - *Maintainer* - [tonytins](https://github.com/tonytins)
 
 See also the list of [contributors](https://github.com/tonytins/act2/contributors) who participated in this project.
 

@@ -1,7 +1,5 @@
-/*
- * This project is licensed under the MIT license.
- * See the LICENSE file in the project root for more information.
- */
+// This project is licensed under the MIT license.
+// See the LICENSE file in the project root for more information.
 extern crate act2;
 
 use act2::load_game;
