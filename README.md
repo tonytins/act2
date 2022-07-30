@@ -4,19 +4,24 @@
 
 Act 2 is a simple engine for making text-based adventure games using JSON.
 
+## Examples
+
 To try out an example, simply type ``cargo run --example game -- game.json`` from your terminal or command line.
 
 ## Requirements
 
-- Rust 2021 Edition
+- Rust 2021 Edition or later
+- IDEs or Editors
+  - [Visual Studio Code](https://code.visualstudio.com/)
+  - [InteliJ IDEA](https://www.jetbrains.com/idea/) or [CLion](https://www.jetbrains.com/clion/)
 
 ## Contributors
 
-- **Dimitri Wayland** - *Initial work* - [alisww](https://github.com/alisww/)
+- **Dimitri Wayland** - *Initial work* - alisww
 - **Tony Bark** - *Maintainer* - [tonytins](https://github.com/tonytins)
 
 See also the list of [contributors](https://github.com/tonytins/act2/contributors) who participated in this project.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
+This project is dual-licensed under the [BSD-3-Clause](LICENSE) or the [UNLICENSE](UNLICENSE).
