@@ -22,8 +22,7 @@
                     "variant": "PickUp",
                     "fields": [
                         "Pick the key up",
-                        "TriangleKey",
-                        ""
+                        "TriangleKey"
                     ]
                 },
                 {
@@ -44,8 +43,7 @@
                     "variant": "Move",
                     "fields": [
                         "Return to start",
-                        "example",
-                        ""
+                        "example"
                     ]
                 }
             ]

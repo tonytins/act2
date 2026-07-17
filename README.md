@@ -1,21 +1,39 @@
 # Act 2 🎬
 
-[![GitHub license](https://img.shields.io/github/license/tonytins/act2)](https://github.com/tonytins/act2/blob/main/LICENSE) ![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/tonytins/act2/Rust/main) ![GitHub commit activity](https://img.shields.io/github/commit-activity/w/tonytins/act2)
+[![GitHub license](https://img.shields.io/github/license/tonytins/act2)](https://github.com/tonytins/act2/blob/main/LICENSE) ![GitHub commit activity](https://img.shields.io/github/commit-activity/w/tonytins/act2)
 
 Act 2 is a simple engine for making text-based adventure games using JSON.
 
-To try out an example, simply type ``cargo run --example game -- game.json`` from your terminal or command line.
+<!--
+To try out an example, simply type ``swift run ActTwo game.json`` from your terminal or command line.
+-->
 
-## Requirements
+## Minimum Requirements
 
-- Rust 2021 Edition
+### Development
 
-## Contributors
+- Swift 6.3+
 
-- **Dimitri Wayland** - *Initial work* - [alisww](https://github.com/alisww/)
-- **Tony Bark** - *Maintainer* - [tonytins](https://github.com/tonytins)
+### Deployment
 
-See also the list of [contributors](https://github.com/tonytins/act2/contributors) who participated in this project.
+| Target  | Version |
+| ------- | ------- |
+| macOS   | 10.13   |
+| Windows | 10      |
+| Ubuntu  | 20.04   |
+| Debian  | 12      |
+| Fedora  | 39      |
+
+## Usage
+
+### Basic Usage
+
+### Command Line Options
+
+| Option   | Short | Description               |
+| -------- | ----- | ------------------------- |
+| `--help` | `-h`  | Display available options |
+
 
 ## License
 
