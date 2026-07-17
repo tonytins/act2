@@ -47,7 +47,7 @@ class AdventureEngine {
             return
         }
 
-        print(room.scene)
+        print("\(room.scene)\n")
 
         for (index, action) in room.actions.enumerated() {
             print("[\(index + 1)] \(action.fields[0])")
@@ -135,12 +135,10 @@ struct ActTwo: ParsableCommand {
 
         let engine = try AdventureEngine(from: jsonInput)
         let title = """
-        ▄▖  ▗   ▄▖
-        ▌▌▛▘▜▘  ▄▌
-        ▛▌▙▖▐▖  ▙▖
-
-        Act 2 Text Adventure Engine
-
+            ▄▖  ▗   ▄▖
+            ▌▌▛▘▜▘  ▄▌
+            ▛▌▙▖▐▖  ▙▖
+        Text Adventure Engine
 
         """
 
@@ -152,7 +150,8 @@ struct ActTwo: ParsableCommand {
             var isRunning = true
             while isRunning {
                 if let input = readLine()?.lowercased() {
-                    if input == "quit" {
+                    if input == "quit" ||
+                        input == "q" {
                         break
                     }
                     if let actionNum = Int(input) {

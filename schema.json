@@ -1,0 +1,124 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Act 2 Game",
+  "type": "object",
+  "properties": {
+    "rooms": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "examples": [
+              "start"
+            ]
+          },
+          "scene": {
+            "type": "string",
+            "examples": [
+              "Im a starting room! Welcome to this example game."
+            ]
+          },
+          "actions": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "variant": {
+                  "type": "string",
+                  "examples": [
+                    "Move"
+                  ]
+                },
+                "fields": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "examples": [
+                      "Move to another room"
+                    ]
+                  },
+                  "examples": [
+                    [
+                      "Move to another room",
+                      "example",
+                      ""
+                    ]
+                  ]
+                }
+              }
+            },
+            "examples": [
+              [
+                {
+                  "variant": "Move",
+                  "fields": [
+                    "Move to another room",
+                    "example",
+                    ""
+                  ]
+                }
+              ]
+            ]
+          }
+        }
+      },
+      "examples": [
+        [
+          {
+            "name": "start",
+            "scene": "Im a starting room! Welcome to this example game.",
+            "actions": [
+              {
+                "variant": "Move",
+                "fields": [
+                  "Move to another room",
+                  "example",
+                  ""
+                ]
+              }
+            ]
+          },
+          {
+            "name": "example",
+            "scene": "You enter an example room, with a big, triangular key in it. There's also a door with a keyhole in triangular shape.",
+            "actions": [
+              {
+                "variant": "PickUp",
+                "fields": [
+                  "Pick the key up",
+                  "TriangleKey"
+                ]
+              },
+              {
+                "variant": "Move",
+                "fields": [
+                  "Try to open the door",
+                  "locked",
+                  "TriangleKey"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "locked",
+            "scene": "You picked an item up and used it to open the door! This is the final room. Congratz!",
+            "actions": [
+              {
+                "variant": "Move",
+                "fields": [
+                  "Return to start",
+                  "example"
+                ]
+              }
+            ]
+          }
+        ]
+      ]
+    }
+  },
+  "required": [
+      "rooms"
+  ]
+}

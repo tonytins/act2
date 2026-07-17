@@ -1,4 +1,5 @@
 {
+    "$schema": "https://raw.githubusercontent.com/tonytins/act2/main/schema.json",
     "rooms": [
         {
             "name": "start",

@@ -34,7 +34,6 @@ To try out an example, simply type ``swift run ActTwo game.json`` from your term
 | -------- | ----- | ------------------------- |
 | `--help` | `-h`  | Display available options |
 
-
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
