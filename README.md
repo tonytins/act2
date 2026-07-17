@@ -4,10 +4,6 @@
 
 Act 2 is a simple engine for making text-based adventure games using JSON.
 
-<!--
-To try out an example, simply type ``swift run ActTwo game.json`` from your terminal or command line.
--->
-
 ## Minimum Requirements
 
 ### Development
@@ -26,7 +22,9 @@ To try out an example, simply type ``swift run ActTwo game.json`` from your term
 
 ## Usage
 
-### Basic Usage
+<!--
+To try out an example, simply type ``swift run act2 game.json`` from your terminal or command line.
+-->
 
 ### Command Line Options
 
