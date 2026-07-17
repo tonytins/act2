@@ -34,4 +34,4 @@ To try out an example, simply type ``swift run act2 game.json`` from your termin
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
+I hereby waive this project's copyright and place it the public domain - see [UNLICENSE](LICENSE) for details.
