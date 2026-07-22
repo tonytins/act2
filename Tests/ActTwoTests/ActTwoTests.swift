@@ -16,7 +16,7 @@ func startGame(jsonFile: String, startRoom: String) -> GameEngine? {
 
 @Test func startRoom() async throws {
 
-    let engine = startGame(jsonFile: json, startRoom: "start")
+    let engine = try #require(startGame(jsonFile: json, startRoom: "start"))
     
-    #expect(engine?.currentRoom.scene == "Im a starting room! Welcome to this example game.")
+    #expect(engine.currentRoom.scene == "Im a starting room! Welcome to this example game.")
 }
