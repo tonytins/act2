@@ -10,28 +10,6 @@ Act 2 is a simple engine for making text-based adventure games using JSON.
 
 - Swift 6.3+
 
-### Deployment
-
-| Target  | Version |
-| ------- | ------- |
-| macOS   | 10.13   |
-| Windows | 10      |
-| Ubuntu  | 20.04   |
-| Debian  | 12      |
-| Fedora  | 39      |
-
-## Usage
-
-<!--
-To try out an example, simply type ``swift run act2 game.json`` from your terminal or command line.
--->
-
-### Command Line Options
-
-| Option   | Short | Description               |
-| -------- | ----- | ------------------------- |
-| `--help` | `-h`  | Display available options |
-
 ## License
 
 I hereby waive this project's copyright and place it the public domain - see [UNLICENSE](LICENSE) for details.

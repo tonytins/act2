@@ -6,24 +6,22 @@ import PackageDescription
 let package = Package(
     name: "ActTwo",
     products: [
-        .executable(name: "act2", targets: ["ActTwo"]),
-    ],
-    dependencies: [
-        .package(url: "https://github.com/apple/swift-argument-parser.git", from: "1.2.0"),
+        // Products define the executables and libraries a package produces, making them visible to other packages.
+        .library(
+            name: "ActTwo",
+            targets: ["ActTwo"]
+        ),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
-        .executableTarget(
-            name: "ActTwo",
-            dependencies: [
-                .product(name: "ArgumentParser", package: "swift-argument-parser"),
-            ],
+        .target(
+            name: "ActTwo"
         ),
         .testTarget(
             name: "ActTwoTests",
-            dependencies: ["ActTwo"],
+            dependencies: ["ActTwo"]
         ),
     ],
-    swiftLanguageModes: [.v6],
+    swiftLanguageModes: [.v6]
 )
