@@ -1,14 +1,43 @@
 # Act 2 🎬
 
-[![GitHub license](https://img.shields.io/github/license/tonytins/act2)](https://github.com/tonytins/act2/blob/main/LICENSE) ![GitHub commit activity](https://img.shields.io/github/commit-activity/w/tonytins/act2)
+Act 2 (or `ActTwo`) is a simple game engine for making text-based adventure games using JSON. This project is named after and fully backwards compatible with Dimitri Wayland's original Act game engine.
 
-Act 2 (or ``ActTwo``) is a simple game engine for making text-based adventure games using JSON. This project is named after and fully backwards compatible with Dimitri Wayland's original Act game engine.
+## Installation
 
-## Minimum Requirements
+```swift
+let package = Package(
+    // name, platforms, products, etc.
+    dependencies: [
+        // other dependencies
+        .package(url: "https://github.com/tonytins/act2.git", branch: "main"),
+    ],
+    targets: [
+        .executableTarget(name: "<your-game>", dependencies: [
+            // other dependencies
+            .product(name: "ActTwo", package: "act2"),
+        ]),
+        // other targets
+    ]
+)
+```
 
-### Development
+Or in Xcode: File -> Add Package Dependencies, then paste the repo URL.
 
-- Swift 6.3+
+#### Usage
+
+```swift
+    let jsonData = Data(jsonFile.utf8)
+    let world = try! JSONDecoder().decode(GameWorld.self, from: jsonData)
+    let engine = try GameEngine(world: world, startRoomName: startRoom)
+    
+    print(engine.currentRoom.scene)
+```
+
+### Supported Versions
+
+| act2    | Minimum Swift Version |
+| ------- | --------------------- |
+| ``main`` | 6.0                   |
 
 ## License
 

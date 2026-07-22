@@ -1,8 +1,8 @@
 // Project tasks configuration. See https://zed.dev/docs/tasks for documentation.
 [
     {
-        "label": "swift run",
-        "command": "swift run act2",
+        "label": "swift test",
+        "command": "swift test",
         "args": [],
         "use_new_terminal": false,
         "allow_concurrent_runs": false,
@@ -16,22 +16,8 @@
     },
     {
         "label": "swift build",
-        "command": "swift build act2",
+        "command": "swift build",
         "args": [],
-        "use_new_terminal": false,
-        "allow_concurrent_runs": false,
-        "reveal": "always",
-        "reveal_target": "dock",
-        "hide": "never",
-        "shell": "system",
-        "show_summary": true,
-        "show_command": true,
-        "save": "none",
-    },
-    {
-        "label": "swift build release",
-        "command": "swift build act2",
-        "args": ["-c", "release"],
         "use_new_terminal": false,
         "allow_concurrent_runs": false,
         "reveal": "always",

@@ -1,16 +1,12 @@
 {
   "tasks" : [
     {
-      "command" : "swift run act2",
+      "command" : "swift test",
       "name" : "Run"
     },
     {
-      "command" : "swift build act2",
+      "command" : "swift build",
       "name" : "Build"
-    },
-    {
-      "command" : "swift build act2 -c Release",
-      "name" : "Build Release"
     },
     {
       "command" : "swiftformat  . --swift-version 6.3",

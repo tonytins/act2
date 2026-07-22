@@ -39,44 +39,42 @@ struct GameEngine {
     let roomLookup: [String: Room]
     private(set) var currentRoomName: String
     private(set) var inventory: Set<String> = []
-    
+
     var currentRoom: Room {
         roomLookup[currentRoomName]!
     }
-    
+
     var availableActions: [ParsedAction] {
         currentRoom.actions.compactMap(parsed(from:))
     }
-    
-    init?(world: GameWorld, startRoomName: String)
-    {
+
+    init?(world: GameWorld, startRoomName: String) {
         let lookup = roomByName(in: world)
         guard lookup[startRoomName] != nil else { return nil }
-        
-        
+
         roomLookup = lookup
         currentRoomName = startRoomName
     }
-    
+
     func hasItem(_ item: String) -> Bool {
         inventory.contains(item)
     }
-    
+
     mutating func attempt(_ action: ParsedAction) -> ActionResult {
         switch action {
-        case .move(_, let destination, let requiredItem):
+        case let .move(_, destination, requiredItem):
             if isMovedBlocked(requiredItem: requiredItem, inventory: inventory) {
                 return .blocked(missingItem: requiredItem!)
             }
-            
+
             guard roomLookup[destination] != nil else {
                 return .destinationUnknown(name: destination)
             }
-            
+
             currentRoomName = destination
-            
+
             return .moved(to: destination)
-        case .pickUp(_, let item):
+        case let .pickUp(_, item):
             inventory.insert(item)
             return .pickedUp(item: item)
         }
