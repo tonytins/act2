@@ -1,3 +1,7 @@
+enum GameVersion: String, Codable {
+    case v1 = "1.0"
+}
+
 enum ActionVariant: String, Codable {
     case move = "Move"
     case pickUp = "PickUp"
@@ -15,6 +19,7 @@ struct Room: Codable {
 }
 
 struct GameWorld: Codable {
+    let version: GameVersion
     let rooms: [Room]
 }
 
@@ -47,6 +52,7 @@ struct GameEngine {
     {
         let lookup = roomByName(in: world)
         guard lookup[startRoomName] != nil else { return nil }
+        
         
         roomLookup = lookup
         currentRoomName = startRoomName

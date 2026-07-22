@@ -3,6 +3,12 @@
   "title": "Act 2 Game",
   "type": "object",
   "properties": {
+    "version": {
+      "type": "string",
+      "examples": [
+          "1.0"
+      ]
+    },
     "rooms": {
       "type": "array",
       "items": {
@@ -119,6 +125,7 @@
     }
   },
   "required": [
-      "rooms"
+    "version",
+    "rooms"
   ]
 }
