@@ -46,7 +46,6 @@ struct GameEngine {
         roomLookup[currentRoomName]!
     }
 
-
     init?(world: GameWorld, startRoomName: String) {
         let lookup = world.roomByName
         guard lookup[startRoomName] != nil else { return nil }

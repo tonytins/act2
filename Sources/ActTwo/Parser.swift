@@ -6,16 +6,16 @@ enum ParsedAction: Equatable {
 extension ParsedAction {
     var prompt: String {
         switch self {
-                case let .move(description, _, _): description
-                case let .pickUp(description, _): description
-                }
+        case let .move(description, _, _): description
+        case let .pickUp(description, _): description
+        }
     }
-    
+
     init?(from action: RoomAction) {
         guard let description = action.fields.first else {
             return nil
         }
-        
+
         switch action.variant {
         case .move:
             guard action.fields.count >= 2 else {
@@ -26,7 +26,7 @@ extension ParsedAction {
             self = .move(
                 description: description,
                 destination: destination,
-                requiredItem: requiredItem.isEmpty ? nil : requiredItem
+                requiredItem: requiredItem.isEmpty ? nil : requiredItem,
             )
         case .pickUp:
             guard action.fields.count >= 2 else {
@@ -35,7 +35,7 @@ extension ParsedAction {
             self = .pickUp(description: description, item: action.fields[1])
         }
     }
-    
+
     func parsed(from action: RoomAction) -> ParsedAction? {
         let description = action.fields[0]
 
