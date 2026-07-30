@@ -27,8 +27,11 @@ Or in Xcode: File -> Add Package Dependencies, then paste the repo URL.
 
 ```swift
 let jsonData = Data(jsonFile.utf8)
-let world = try! JSONDecoder().decode(GameWorld.self, from: jsonData)
-let engine = try GameEngine(world: world, startRoomName: startRoom)
+let world = try JSONDecoder().decode(GameWorld.self, from: jsonData)
+guard var engine = GameEngine(world: world, startRoomName: "start") else {
+    print("Couldn't load Act 2")
+    return
+}
 
 print(engine.currentRoom.scene)
 ```
