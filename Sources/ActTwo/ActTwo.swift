@@ -23,13 +23,6 @@ struct GameWorld: Codable {
     let rooms: [Room]
 }
 
-extension Set where Element == String {
-    func missingItem(from candidate: String?) -> String? {
-        guard let candidate, !contains(candidate) else { return nil }
-        return candidate
-    }
-}
-
 extension GameWorld {
     var roomByName: [String: Room] {
         Dictionary(rooms.map { ($0.name, $0) },
