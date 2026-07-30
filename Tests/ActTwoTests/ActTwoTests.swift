@@ -2,18 +2,101 @@
 import Foundation
 import Testing
 
-let json = """
-{"version":"v1","rooms":[{"name":"start","scene":"Im a starting room! Welcome to this example game.","actions":[{"variant":"Move","fields":["Move to another room","example",""]}]},{"name":"example","scene":"You enter an example room, with a big, triangular key in it. There's also a door with a keyhole in triangular shape.","actions":[{"variant":"PickUp","fields":["Pick the key up","TriangleKey"]},{"variant":"Move","fields":["Try to open the door","locked","TriangleKey"]}]},{"name":"locked","scene":"You picked an item up and used it to open the door! This is the final room. Congratz!","actions":[{"variant":"Move","fields":["Return to start","example"]}]}]}
-"""
+private let startRoomName = "start"
+private let exampleRoomName = "example"
+private let lockedRoomName = "locked"
+private let hallRoomName = "hall"
+private let unknownRoomName = "nowhere"
 
-func startGame(jsonFile: String, startRoom: String) -> GameEngine? {
-    let jsonData = Data(jsonFile.utf8)
-    let world = try! JSONDecoder().decode(GameWorld.self, from: jsonData)
-    return GameEngine(world: world, startRoomName: startRoom)
+private let triangleKey = "TriangleKey"
+
+private let moveToExampleDescription = "Move to another room"
+private let pickUpKeyDescription = "Pick the key up"
+private let openDoorDescription = "Try to open the door"
+private let returnToStartDescription = "Return to start"
+private let goNorthDescription = "Go north"
+private let fallIntoVoidDescription = "Fall into the void"
+
+private let moveToExampleFields = [moveToExampleDescription, exampleRoomName, ""]
+private let pickUpKeyFields = [pickUpKeyDescription, triangleKey]
+private let openDoorFields = [openDoorDescription, lockedRoomName, triangleKey]
+private let returnToStartFields = [returnToStartDescription, exampleRoomName]
+private let goNorthFields = [goNorthDescription, hallRoomName, ""]
+
+func testWorld() -> GameWorld {
+    GameWorld(
+        version: .v1,
+        rooms: [
+            Room(name: startRoomName, scene: "Starting room.", actions: [
+                RoomAction(variant: .move, fields: moveToExampleFields),
+            ]),
+            Room(name: exampleRoomName, scene: "Example room.", actions: [
+                RoomAction(variant: .pickUp, fields: pickUpKeyFields),
+                RoomAction(variant: .move, fields: openDoorFields),
+            ]),
+            Room(name: lockedRoomName, scene: "Final room.", actions: [
+                RoomAction(variant: .move, fields: returnToStartFields),
+            ]),
+        ]
+    )
 }
 
-@Test func `start room`() throws {
-    let engine = try #require(startGame(jsonFile: json, startRoom: "start"))
+let moveParsingCases: [(action: RoomAction, expected: ParsedAction)] = [
+    (
+        RoomAction(variant: .move, fields: openDoorFields),
+        .move(
+            description: openDoorDescription,
+            destination: lockedRoomName,
+            requiredItem: triangleKey)
+        ),
+    (
+        RoomAction(variant: .move, fields: goNorthFields),
+        .move(
+            description: goNorthDescription,
+            destination: hallRoomName,
+            requiredItem: nil
+        )
+    )
+]
 
-    #expect(engine.currentRoom.scene == "Im a starting room! Welcome to this example game.")
+let incompleteActions: [RoomAction] = [
+    RoomAction(variant: .move, fields: [goNorthDescription]),
+    RoomAction(variant: .pickUp, fields: [pickUpKeyDescription])
+]
+
+@Suite
+struct ParsedActionTests {
+    @Test(arguments: moveParsingCases)
+    func moveParses(action: RoomAction, expected: ParsedAction) {
+        #expect(ParsedAction(from: action) == expected)
+    }
+    
+    @Test(arguments: incompleteActions)
+    func incompleteActionFailsToPrase(action: RoomAction) {
+        #expect(ParsedAction(from: action) == nil)
+    }
+    
+    @Test func pickUp() {
+        let action = RoomAction(variant: .pickUp, fields: pickUpKeyFields)
+        
+        #expect(
+            ParsedAction(from: action) ==
+                .pickUp(description: pickUpKeyDescription, item: triangleKey)
+        )
+    }
+    
+    @Test func prompt() {
+        let move = ParsedAction.move(
+            description: openDoorDescription,
+            destination: lockedRoomName,
+            requiredItem: nil
+        )
+        let pickUp = ParsedAction.pickUp(
+            description: pickUpKeyDescription,
+            item: triangleKey
+        )
+        
+        #expect(move.prompt == openDoorDescription)
+        #expect(pickUp.prompt == pickUpKeyDescription)
+    }
 }

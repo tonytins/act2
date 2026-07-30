@@ -23,9 +23,18 @@ struct GameWorld: Codable {
     let rooms: [Room]
 }
 
-enum ParsedAction: Equatable {
-    case move(description: String, destination: String, requiredItem: String?)
-    case pickUp(description: String, item: String)
+extension Set where Element == String {
+    func missingItem(from candidate: String?) -> String? {
+        guard let candidate, !contains(candidate) else { return nil }
+        return candidate
+    }
+}
+
+extension GameWorld {
+    var roomByName: [String: Room] {
+        Dictionary(rooms.map { ($0.name, $0) },
+                   uniquingKeysWith: { _, last in last })
+    }
 }
 
 enum ActionResult: Equatable {
@@ -44,12 +53,9 @@ struct GameEngine {
         roomLookup[currentRoomName]!
     }
 
-    var availableActions: [ParsedAction] {
-        currentRoom.actions.compactMap(parsed(from:))
-    }
 
     init?(world: GameWorld, startRoomName: String) {
-        let lookup = roomByName(in: world)
+        let lookup = world.roomByName
         guard lookup[startRoomName] != nil else { return nil }
 
         roomLookup = lookup
@@ -63,8 +69,8 @@ struct GameEngine {
     mutating func attempt(_ action: ParsedAction) -> ActionResult {
         switch action {
         case let .move(_, destination, requiredItem):
-            if isMovedBlocked(requiredItem: requiredItem, inventory: inventory) {
-                return .blocked(missingItem: requiredItem!)
+            if let missing = inventory.missingItem(from: requiredItem) {
+                return .blocked(missingItem: missing)
             }
 
             guard roomLookup[destination] != nil else {

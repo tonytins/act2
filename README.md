@@ -1,6 +1,6 @@
 # Act 2 🎬
 
-Act 2 (or `ActTwo`) is a simple game engine for making text-based adventure games using JSON. This project is named after and fully backwards compatible with Dimitri Wayland's original Act game engine.
+Act 2 (or `ActTwo`) is a simple game engine for making text-based adventure games using JSON. This project is named after and fully backwards compatible with Dimitri Wayland's original [Act game engine](https://github.com/tonytins/act).
 
 ## Installation
 
@@ -26,11 +26,11 @@ Or in Xcode: File -> Add Package Dependencies, then paste the repo URL.
 #### Usage
 
 ```swift
-    let jsonData = Data(jsonFile.utf8)
-    let world = try! JSONDecoder().decode(GameWorld.self, from: jsonData)
-    let engine = try GameEngine(world: world, startRoomName: startRoom)
-    
-    print(engine.currentRoom.scene)
+let jsonData = Data(jsonFile.utf8)
+let world = try! JSONDecoder().decode(GameWorld.self, from: jsonData)
+let engine = try GameEngine(world: world, startRoomName: startRoom)
+
+print(engine.currentRoom.scene)
 ```
 
 ### Supported Versions
