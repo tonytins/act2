@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "E1A5D208-A63F-4599-9A0B-B0B49DFBB2D1",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "performanceAntipatternCheckerEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:",
+        "identifier" : "ActTwoTests",
+        "name" : "ActTwoTests"
+      }
+    }
+  ],
+  "version" : 1
+}
