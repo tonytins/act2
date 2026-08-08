@@ -1,5 +1,6 @@
 enum GameVersion: String, Codable {
     case v1 = "1.0"
+    case v2 = "2.0"
 }
 
 enum ActionVariant: String, Codable {
@@ -16,6 +17,14 @@ struct Room: Codable {
     let name: String
     let scene: String
     let actions: [RoomAction]
+    let script: String // Introduced with 2.0
+    
+    init(name: String, scene: String, actions: [RoomAction]) {
+        self.name = name
+        self.scene = scene
+        self.actions = actions
+        self.script = ""
+    }
 }
 
 struct GameWorld: Codable {

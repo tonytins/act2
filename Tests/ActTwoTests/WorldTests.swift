@@ -3,7 +3,7 @@ import Testing
 
 @testable import ActTwo
 
-@Suite("World tests")
+@Suite("World")
 struct WorldTests {
     @Test func roomByName() {
         #expect(
@@ -17,8 +17,12 @@ struct WorldTests {
         let world = GameWorld(
             version: .v1,
             rooms: [
-                Room(name: name, scene: "first", actions: []),
-                Room(name: name, scene: "second", actions: []),
+                Room(name: name,
+                     scene: "first",
+                     actions: []),
+                Room(name: name,
+                     scene: "second",
+                     actions: []),
             ])
         
         #expect(world.roomByName[name]?.scene == "second")
